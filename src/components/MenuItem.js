@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-
-const MenuItem = ({ title, imageUrl }) => {
+// higher order component
+// we have access to history
+import { withRouter } from 'react-router-dom'
+const MenuItem = ({ title, imageUrl, history, linkUrl, match }) => {
     return (
-        <MenuItemContainer>
+        <MenuItemContainer
+        onClick={() => {history.push(`${match.url}${linkUrl}`)}}
+        >
             <MenuItemWrapper>
                 <AvatarImage src={imageUrl} />
                 <h1 className="title">{title}</h1>
@@ -13,7 +17,7 @@ const MenuItem = ({ title, imageUrl }) => {
     )
 }
 
-export default MenuItem
+export default withRouter(MenuItem)
 const MenuItemWrapper = styled.div`
 margin: 10px 10px;
 width: 120px;
