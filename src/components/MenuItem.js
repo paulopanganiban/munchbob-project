@@ -3,22 +3,34 @@ import styled from 'styled-components'
 // higher order component
 // we have access to history
 import { withRouter } from 'react-router-dom'
+import { ArrowRightOutlined } from '@ant-design/icons'
 const MenuItem = ({ title, imageUrl, history, linkUrl, match }) => {
     return (
         <MenuItemContainer
-        onClick={() => {history.push(`${match.url}${linkUrl}`)}}
+            onClick={() => { history.push(`${match.url}${linkUrl}`) }}
         >
             <MenuItemWrapper>
                 <AvatarImage src={imageUrl} />
-                <h1 className="title">{title}</h1>
-                <span className="subtitle">Arrow</span>
+                    <h1 className="title">{title}</h1>
+                <MenuItemInner>
+                    <ArrowRightOutlined style={{ color: 'white' }} />
+                </MenuItemInner>
+
             </MenuItemWrapper>
         </MenuItemContainer>
     )
 }
 
 export default withRouter(MenuItem)
+const MenuItemInner = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 5px;
+margin-bottom: 10px;
+`
 const MenuItemWrapper = styled.div`
+border-radius: 10px;
 margin: 10px 10px;
 width: 120px;
 height: 180px;

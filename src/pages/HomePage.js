@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import CollectionPreview from '../components/CollectionPreview'
 import Directory from '../components/Directory'
-import Header from '../components/Header'
-import LandingPage from '../components/LandingPage'
+import Hero from '../components/Hero'
 import MenuItem from '../components/MenuItem'
 
 const HomePage = () => {
     return (
         <HomePageContainer>
-            <LandingPage/>
-           <Directory/>
+            <Hero />
+            <Directory />
+            TODO: Collection item filtered
         </HomePageContainer>
     )
 }

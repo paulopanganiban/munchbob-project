@@ -1,0 +1,6 @@
+todo: style menu item
+
+
+show 1 best seller for beef chicken pork etc
+redux, redux utils data structure
+kaya mo yan!
