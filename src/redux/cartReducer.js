@@ -7,8 +7,7 @@ const cartReducer = (state = initialState, action) => {
         case 'ADD_ITEM':
             return {
                 ...state,
-                // add any additonal values
-                cartItems: [...state.cartItems, action.payload]
+                cartItems: addItemToCart(state.cartItems, action.payload)
             }
         default:
             return state
@@ -18,6 +17,27 @@ const cartReducer = (state = initialState, action) => {
 export default cartReducer
 // actions to dispatch
 export const addItem = item => ({
-   type: "ADD_ITEM",
-   payload: item 
+    type: "ADD_ITEM",
+    payload: item
 })
+// utilities
+export const addItemToCart = (cartItems, cartItemToAdd) => {
+    // hanap tayo sa cartItems through id, tapos check
+    // kung merong existing na
+    const existingCartItem = cartItems.find(cartItem =>
+        cartItem.id === cartItemToAdd.id)
+
+    // check natin kung meron
+    if (existingCartItem) {
+        // 
+        return cartItems.map(cartItem =>
+            cartItem.id === cartItemToAdd.id ?
+                { ...cartItem, quantity: cartItem.quantity + 1 }
+                : cartItem
+        )
+    }
+
+    // if no cart items are found 
+    // return existing cartItems, and add an object
+    return [...cartItems, { ...cartItemToAdd, quantity: 1 }]
+}
