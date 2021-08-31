@@ -3,7 +3,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import CartPopover from './CartPopover'
+import { useSelector } from 'react-redux'
 const ShoppingIcon = () => {
+    const cartItems = useSelector(state => state.cart.cartItems)
     return (
         <ShoppingIconContainer>
             <Popover placement="bottomRight" title={'Recently Added Products'} content={<CartPopover/>}

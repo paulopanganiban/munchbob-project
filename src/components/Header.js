@@ -28,7 +28,6 @@ const Header = () => {
                 <StyledImg src={Logo2} alt="" style={{ marginTop: 3 }} />
             </HeaderMiddle>
             <HeaderRight>
-                {/* TODO: cart into separate component */}
                 <HeaderWrapper>
                     <ShoppingIcon />
                 </HeaderWrapper>

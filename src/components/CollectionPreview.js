@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Card, Button } from 'antd';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/cartReducer';
 
 const { Meta } = Card;
 const CollectionPreview = ({ title, items }) => {
+    const dispatch = useDispatch()
     return (
         <CollectionPreviewContainer>
             <h1 style={{ padding: 10 }}>{title}</h1>
@@ -20,7 +23,9 @@ const CollectionPreview = ({ title, items }) => {
                                 >
                                     <CardMetaContainer>
                                         <Meta title={item.name}/>
-                                        <Button>Add to Cart</Button>
+                                        <Button
+                                        onClick={() => {dispatch(addItem(item))}}
+                                        >Add to Cart</Button>
                                     </CardMetaContainer>
                                     <p>PHP {item.price}</p>
                                 </Card>
