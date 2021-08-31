@@ -8,6 +8,7 @@ import { toggleHamburger } from '../redux/headerReducer'
 import { Badge, Avatar } from 'antd'
 import HamburgerMenu from './HamburgerMenu'
 import { Popover, Button } from 'antd';
+import ShoppingIcon from './ShoppingIcon'
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -29,15 +30,7 @@ const Header = () => {
             <HeaderRight>
                 {/* TODO: cart into separate component */}
                 <HeaderWrapper>
-                    {/* <Badge size='large' count={5} color='green'
-                        style={{ backgroundColor: '#52c41a' }}>
-                    </Badge> */}
-                    <Popover placement="bottomRight" title={'Test'} content={'content'} 
-                    offset={[10,10]}
-                    >
-                        <ShoppingCartOutlined style={{ color: 'white', fontSize: 30, padding: '10px 10px' }} />
-                    </Popover>
-
+                    <ShoppingIcon />
                 </HeaderWrapper>
             </HeaderRight>
         </HeaderContainer>
