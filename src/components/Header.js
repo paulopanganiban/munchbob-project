@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleHamburger } from '../redux/headerReducer'
 import { Badge, Avatar } from 'antd'
 import HamburgerMenu from './HamburgerMenu'
+import { Popover, Button } from 'antd';
+
 const Header = () => {
     const dispatch = useDispatch()
     const hamburgerHidden = useSelector(state => state.header.hidden)
@@ -18,7 +20,7 @@ const Header = () => {
                 />
                 {
                     // TODO: Finish this later.
-                    hamburgerHidden ? (<HamburgerMenu isOpen={false}/>) : (null)
+                    hamburgerHidden ? (<HamburgerMenu isOpen={false} />) : (null)
                 }
             </HeaderLeft>
             <HeaderMiddle>
@@ -30,7 +32,12 @@ const Header = () => {
                     {/* <Badge size='large' count={5} color='green'
                         style={{ backgroundColor: '#52c41a' }}>
                     </Badge> */}
+                    <Popover placement="bottomRight" title={'Test'} content={'content'} 
+                    offset={[10,10]}
+                    >
                         <ShoppingCartOutlined style={{ color: 'white', fontSize: 30, padding: '10px 10px' }} />
+                    </Popover>
+
                 </HeaderWrapper>
             </HeaderRight>
         </HeaderContainer>
