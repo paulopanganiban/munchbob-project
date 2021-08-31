@@ -8,9 +8,7 @@ const ShoppingIcon = () => {
     const cartItems = useSelector(state => state.cart.cartItems)
     return (
         <ShoppingIconContainer>
-            <Popover placement="bottomRight" title={'Recently Added Products'} content={<CartPopover/>}
-
-            >
+            <Popover placement="bottomRight" title={'Recently Added Products'} content={<CartPopover/>}>
                 <ShoppingWrapper>
                     <ShoppingCartOutlined style={{ color: 'white', fontSize: 30, padding: '10px 10px' }} />
                     <Badge count={1}
