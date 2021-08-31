@@ -6,12 +6,15 @@ import CartPopover from './CartPopover'
 import { useSelector } from 'react-redux'
 const ShoppingIcon = () => {
     const cartItems = useSelector(state => state.cart.cartItems)
+    const cartItemsTotal = cartItems.reduce(
+        (accumulatedQuantity, cartItem) => 
+    accumulatedQuantity + cartItem.quantity, 0)
     return (
         <ShoppingIconContainer>
             <Popover placement="bottomRight" title={'Recently Added Products'} content={<CartPopover/>}>
                 <ShoppingWrapper>
                     <ShoppingCartOutlined style={{ color: 'white', fontSize: 30, padding: '10px 10px' }} />
-                    <Badge count={1}
+                    <Badge count={cartItemsTotal}
                         offset={[-15, -15]}
                         style={{ backgroundColor: '#52c41a' }}
                     />
