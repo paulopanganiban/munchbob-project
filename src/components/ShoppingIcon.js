@@ -8,7 +8,7 @@ import { toggleCart } from '../redux/cartReducer'
 const ShoppingIcon = () => {
 
     const cartItems = useSelector(state => state.cart.cartItems)
-    const cartToggle = useSelector(state => state.cart.hidden)
+    const cartToggle = useSelector(state => state.cart.visible)
     const dispatch = useDispatch()
     const cartItemsTotal = cartItems.reduce(
         (accumulatedQuantity, cartItem) => 

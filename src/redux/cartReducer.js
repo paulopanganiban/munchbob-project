@@ -1,6 +1,6 @@
 const initialState = {
     cartItems: [],
-    hidden: true,
+    visible: false,
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -13,12 +13,12 @@ const cartReducer = (state = initialState, action) => {
         case 'CLOSE_CART':
             return {
                 ...state,
-                hidden: action.payload
+                visible: action.payload
             }
         case 'TOGGLE_CART':
             return {
                 ...state,
-                hidden: !state.hidden
+                visible: !state.visible
             }
         default:
             return state
