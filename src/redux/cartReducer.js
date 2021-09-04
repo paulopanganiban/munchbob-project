@@ -1,5 +1,6 @@
 const initialState = {
-    cartItems: []
+    cartItems: [],
+    hidden: true,
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -8,6 +9,16 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cartItems: addItemToCart(state.cartItems, action.payload)
+            }
+        case 'CLOSE_CART':
+            return {
+                ...state,
+                hidden: action.payload
+            }
+        case 'TOGGLE_CART':
+            return {
+                ...state,
+                hidden: !state.hidden
             }
         default:
             return state
@@ -19,6 +30,13 @@ export default cartReducer
 export const addItem = item => ({
     type: "ADD_ITEM",
     payload: item
+})
+export const closeCart = bool => ({
+    type: 'CLOSE_CART',
+    payload: bool
+})
+export const toggleCart = () => ({
+    type: 'TOGGLE_CART'
 })
 // utilities
 export const addItemToCart = (cartItems, cartItemToAdd) => {

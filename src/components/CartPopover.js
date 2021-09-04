@@ -1,10 +1,13 @@
 import { Button } from 'antd'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
+import { closeCart } from '../redux/cartReducer'
 import CartItem from './CartItem'
 
-const CartPopover = () => {
+const CartPopover = ({history}) => {
+    const dispatch = useDispatch()
     const cartItems = useSelector(state => state.cart.cartItems)
     return (
         <CartPopoverContainer>
@@ -12,18 +15,24 @@ const CartPopover = () => {
             <CartPopoverTopContainer>
            {/* map cartState then pass to cartItem */}
            {
-               cartItems?.map(cartItem => (<CartItem key={cartItem.id} item={cartItem}/>))
+               cartItems?.length ? 
+               cartItems.map(cartItem => (<CartItem key={cartItem.id} item={cartItem}/>))
+               :
+               (<span>Your cart is empty.</span>)
            }
             </CartPopoverTopContainer>
 
             <CartPopoverBottomContainer>
-                <Button>Go to Checkout</Button>
+                <Button onClick={() => {history.push('/checkout')
+                dispatch(closeCart(false))
+            }}>
+                Go to Checkout</Button>
             </CartPopoverBottomContainer>
         </CartPopoverContainer>
     )
 }
 
-export default CartPopover
+export default withRouter(CartPopover)
 const CartPopoverBottomContainer = styled.div`
 display: flex;
 align-items: center;
@@ -34,4 +43,6 @@ padding: 10px;
 
 `
 const CartPopoverContainer = styled.div`
+max-height: 500px;
+overflow-y: auto;
 `
