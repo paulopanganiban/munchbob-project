@@ -5,7 +5,7 @@ import { InputNumber } from 'antd';
 import React from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux';
-import { clearItemFromCart } from '../redux/cartReducer';
+import { addItem, clearItemFromCart, removeItem, removeItemFromCart } from '../redux/cartReducer';
 const CheckoutItem = ({ cartItem }) => {
     const dispatch = useDispatch()
     const { name, imageUrl, price, quantity } = cartItem
@@ -13,7 +13,7 @@ const CheckoutItem = ({ cartItem }) => {
         <CheckoutItemContainer>
             <CardContainer>
                 <CardWrapperLeft>
-                    <Image src={imageUrl} />
+                    <Image src={imageUrl} /> 
                 </CardWrapperLeft>
                 <CardWrapperRight>
                     <CardWrapperRightUpper>
@@ -25,9 +25,13 @@ const CheckoutItem = ({ cartItem }) => {
                     <CardWrapperRightLower>
                         <QuantityContainer>
                             {/*  */}
-                            <MinusIcon />
+                            <MinusIcon 
+                            onClick={() => {dispatch(removeItem(cartItem))}}
+                            />
                             <h2 style={{ margin: '0px 10px' }}>{quantity}</h2>
-                            <PlusIcon />
+                            <PlusIcon 
+                             onClick={() => {dispatch(addItem(cartItem))}}
+                            />
                         </QuantityContainer>
                         <CardWrapperRightLowerPrice>
                             <h2 style={{ margin: '0px 10px' }}>Php {price}</h2>
