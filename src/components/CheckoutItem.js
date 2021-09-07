@@ -4,7 +4,10 @@ import { ReactComponent as MinusIcon } from '../assets/dash-circle-fill.svg'
 import { InputNumber } from 'antd';
 import React from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux';
+import { clearItemFromCart } from '../redux/cartReducer';
 const CheckoutItem = ({ cartItem }) => {
+    const dispatch = useDispatch()
     const { name, imageUrl, price, quantity } = cartItem
     return (
         <CheckoutItemContainer>
@@ -15,10 +18,13 @@ const CheckoutItem = ({ cartItem }) => {
                 <CardWrapperRight>
                     <CardWrapperRightUpper>
                         <h3>{name}</h3>
-                        <StyledCloseIcon />
+                        <StyledCloseIcon 
+                        onClick={() => {dispatch(clearItemFromCart(cartItem))}}
+                        />
                     </CardWrapperRightUpper>
                     <CardWrapperRightLower>
                         <QuantityContainer>
+                            {/*  */}
                             <MinusIcon />
                             <h2 style={{ margin: '0px 10px' }}>{quantity}</h2>
                             <PlusIcon />
@@ -34,6 +40,7 @@ const CheckoutItem = ({ cartItem }) => {
 }
 
 export default CheckoutItem
+
 const QuantityContainer = styled.div`
 display: flex;
 align-items: center;

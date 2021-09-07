@@ -4,3 +4,7 @@ todo: style menu item
 show 1 best seller for beef chicken pork etc
 redux, redux utils data structure
 kaya mo yan!
+
+9/5/2021
+CheckoutItem.js
+todo: styled components DRY css for minus and plus cursor pointer

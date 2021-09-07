@@ -20,6 +20,11 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 visible: !state.visible
             }
+        case 'CLEAR_ITEM_FROM_CART':
+            return {
+                ...state,
+                cartItems: state.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
+            }
         default:
             return state
     }
@@ -27,6 +32,10 @@ const cartReducer = (state = initialState, action) => {
 
 export default cartReducer
 // actions to dispatch
+export const clearItemFromCart = item => ({
+    type: 'CLEAR_ITEM_FROM_CART',
+    payload: item
+})
 export const addItem = item => ({
     type: "ADD_ITEM",
     payload: item
