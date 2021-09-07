@@ -9,8 +9,9 @@ import { Badge, Avatar } from 'antd'
 import HamburgerMenu from './HamburgerMenu'
 import { Popover, Button } from 'antd';
 import ShoppingIcon from './ShoppingIcon'
+import { withRouter } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({history}) => {
     const dispatch = useDispatch()
     const hamburgerHidden = useSelector(state => state.header.hidden)
     return (
@@ -25,7 +26,9 @@ const Header = () => {
                 }
             </HeaderLeft>
             <HeaderMiddle>
-                <StyledImg src={Logo2} alt="" style={{ marginTop: 3 }} />
+                <StyledImg src={Logo2} alt="" style={{ marginTop: 3 }} 
+                onClick={() => history.push('/')}
+                />
             </HeaderMiddle>
             <HeaderRight>
                 <HeaderWrapper>
@@ -36,7 +39,7 @@ const Header = () => {
     )
 }
 
-export default Header
+export default withRouter(Header)
 const HeaderWrapper = styled.div`
 `
 const StyledImg = styled.img`

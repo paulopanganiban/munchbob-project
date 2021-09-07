@@ -13,7 +13,9 @@ const CollectionItem = ({item}) => {
             key={item.id}
             hoverable
             style={{ width: '85%' }}
-            cover={<img alt={item.title} src={item.imageUrl} />}
+            cover={<img 
+                style={{maxHeight: 200, objectFit: 'contain'}}
+                alt={item.title} src={item.imageUrl} />}
         >
             <CardMetaContainer>
                 <Meta title={item.name}/>
