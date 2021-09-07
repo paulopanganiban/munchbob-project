@@ -1,20 +1,32 @@
 import { Button } from 'antd'
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { toggleHamburger } from '../redux/headerReducer'
 import { motion } from 'framer-motion'
+import { signOut } from '../firebase'
 const HamburgerMenu = ({ isOpen, history }) => {
     const dispatch = useDispatch()
+    const currentUser = useSelector(state => state.user.currentUser)
     return (
         <HamburgerMenuContainer isOpen={isOpen}
             onClick={() => dispatch(toggleHamburger())}
         >
             <HamburgerMenuWrapper>
-                <StyledButton
-                    onClick={() => history.push('/signin')}
-                >Sign in</StyledButton>
+                {
+                    currentUser ?
+                        (
+                            <StyledButton
+                                onClick={() => {signOut()}}
+                            >Sign out</StyledButton>
+                        ) : 
+                        (
+                            <StyledButton
+                            onClick={() => history.push('/signin')}
+                        >Sign in</StyledButton>
+                        )
+                }
             </HamburgerMenuWrapper>
         </HamburgerMenuContainer>
     )
