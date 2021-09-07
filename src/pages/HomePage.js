@@ -17,7 +17,7 @@ const HomePage = () => {
             <HeaderText>BEST SELLERS</HeaderText>
             {
                 collectionsArray.map(({id, ...otherCollectionProps}) => (
-                    <CollectionPreview key={id} {...otherCollectionProps}/>
+                    <CollectionPreview key={id} {...otherCollectionProps} homepage={true}/>
                 ))
             }  
         </HomePageContainer>
@@ -26,7 +26,7 @@ const HomePage = () => {
 
 export default HomePage
 const HeaderText = styled.h1`
-padding: 10px;
+padding-top: 10px;
 display: flex;
 align-items: center;
 justify-content: center;

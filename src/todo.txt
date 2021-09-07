@@ -8,3 +8,8 @@ kaya mo yan!
 9/5/2021
 CheckoutItem.js
 todo: styled components DRY css for minus and plus cursor pointer
+
+9/8/2021
+Finish hamburger
+Add user information
+login logout

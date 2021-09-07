@@ -6,11 +6,14 @@ import { addItem } from '../redux/cartReducer';
 import CollectionItem from './CollectionItem';
 
 const { Meta } = Card;
-const CollectionPreview = ({ title, items }) => {
+const CollectionPreview = ({ title, items, homepage }) => {
     const dispatch = useDispatch()
     return (
         <CollectionPreviewContainer>
-            <h1 style={{ padding: 10 }}>{title}</h1>
+            {
+                homepage ? null : (<h1 style={{ padding: 10 }}>{title}</h1>)
+            }
+
             <CollectionPreviewWrapper>
                 {
                     items.filter((item, idx) => idx < 4).map((item) => (

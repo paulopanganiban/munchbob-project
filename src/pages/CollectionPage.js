@@ -10,6 +10,11 @@ const CollectionPage = ({match}) => {
     return (
         <div className='collection-page'>
         <div className="items">
+            <h1
+            style={{padding: 10}}
+            >
+            {match.params.collectionId.toUpperCase()}
+            </h1>
             {
                 collection.items?.map(item => <CollectionItem key={item.id} item={item} />)
             }

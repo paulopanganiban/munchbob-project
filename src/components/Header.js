@@ -22,7 +22,7 @@ const Header = ({history}) => {
                 />
                 {
                     // TODO: Finish this later.
-                    hamburgerHidden ? (<HamburgerMenu isOpen={false} />) : (null)
+                    hamburgerHidden ? (<HamburgerMenu isOpen={hamburgerHidden}/>) : (null)
                 }
             </HeaderLeft>
             <HeaderMiddle>
@@ -63,6 +63,9 @@ justify-content: center;
 
 `
 const HeaderContainer = styled.div`
+z-index: 100;
+position: sticky;
+top: 0;
 display: flex;
 justify-content: space-between;
 background-color: #d52027;

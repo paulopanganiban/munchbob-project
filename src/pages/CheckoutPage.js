@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CheckoutItem from '../components/CheckoutItem'
 import CurrencyFormat from 'react-currency-format'
+import StripeButton from '../components/StripeButton'
 const CheckoutPage = () => {
     const cartItems = useSelector(state => state.cart.cartItems)
     const cartItemsTotalPrice = cartItems.reduce(
@@ -32,11 +33,19 @@ const CheckoutPage = () => {
                     />
                 ))
             }
+            <StripeButtonWrapper>
+                <StripeButton price={cartItemsTotalPrice} />
+            </StripeButtonWrapper>
         </CheckoutPageContainer>
     )
 }
 
 export default CheckoutPage
+const StripeButtonWrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+`
 const TotalContainer = styled.div`
 padding: 10px;
 `
