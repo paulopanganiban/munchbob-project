@@ -1,13 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card, Button } from 'antd';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../redux/cartReducer';
 import CollectionItem from './CollectionItem';
-
-const { Meta } = Card;
 const CollectionPreview = ({ title, items, homepage }) => {
-    const dispatch = useDispatch()
     return (
         <CollectionPreviewContainer>
             {

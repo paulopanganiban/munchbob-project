@@ -1,0 +1,22 @@
+[debug] [2021-09-07T20:05:16.979Z] ----------------------------------------------------------------------
+[debug] [2021-09-07T20:05:16.981Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\OLO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-09-07T20:05:16.982Z] CLI Version:   9.16.5
+[debug] [2021-09-07T20:05:16.982Z] Platform:      win32
+[debug] [2021-09-07T20:05:16.982Z] Node Version:  v14.16.1
+[debug] [2021-09-07T20:05:16.983Z] Time:          Wed Sep 08 2021 04:05:16 GMT+0800 (Singapore Standard Time)
+[debug] [2021-09-07T20:05:16.984Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-09-07T20:05:16.987Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-09-07T20:05:17.010Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-09-07T20:05:17.011Z] > authorizing via signed-in user (olopangs@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\OlopangUnity\munchbob-project
+
