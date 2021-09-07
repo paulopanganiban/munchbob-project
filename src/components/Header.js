@@ -1,17 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MenuOutlined, ShoppingCartOutlined } from '@ant-design/icons'
-import Logo from '../assets/logolas.png'
+import { MenuOutlined} from '@ant-design/icons'
 import Logo2 from '../assets/header.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleHamburger } from '../redux/headerReducer'
-import { Badge, Avatar } from 'antd'
 import HamburgerMenu from './HamburgerMenu'
-import { Popover, Button } from 'antd';
 import ShoppingIcon from './ShoppingIcon'
 import { withRouter } from 'react-router-dom'
-
-const Header = ({history}) => {
+const Header = ({ history }) => {
     const dispatch = useDispatch()
     const hamburgerHidden = useSelector(state => state.header.hidden)
     return (
@@ -22,12 +18,12 @@ const Header = ({history}) => {
                 />
                 {
                     // TODO: Finish this later.
-                    hamburgerHidden ? (<HamburgerMenu isOpen={hamburgerHidden}/>) : (null)
+                    hamburgerHidden ? (<HamburgerMenu isOpen={hamburgerHidden} />) : (null)
                 }
             </HeaderLeft>
             <HeaderMiddle>
-                <StyledImg src={Logo2} alt="" style={{ marginTop: 3 }} 
-                onClick={() => history.push('/')}
+                <StyledImg src={Logo2} alt="" style={{ marginTop: 3 }}
+                    onClick={() => history.push('/')}
                 />
             </HeaderMiddle>
             <HeaderRight>

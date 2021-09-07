@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { toggleHamburger } from '../redux/headerReducer'
-
+import { motion } from 'framer-motion'
 const HamburgerMenu = ({ isOpen, history }) => {
     const dispatch = useDispatch()
     return (
@@ -13,7 +13,7 @@ const HamburgerMenu = ({ isOpen, history }) => {
         >
             <HamburgerMenuWrapper>
                 <StyledButton
-                onClick={() => history.push('/signin')}
+                    onClick={() => history.push('/signin')}
                 >Sign in</StyledButton>
             </HamburgerMenuWrapper>
         </HamburgerMenuContainer>
@@ -29,7 +29,7 @@ padding: 10px;
 display: flex;
 justify-content: center;
 `
-const HamburgerMenuContainer = styled.aside`
+const HamburgerMenuContainer = styled(motion.aside)`
 position: fixed;
 z-index: 999;
 width: 400px;
