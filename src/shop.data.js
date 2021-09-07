@@ -1,5 +1,5 @@
-export const SHOP_DATA = [
-  {
+export const SHOP_DATA = {
+  beef: {
     id: 1,
     title: 'Beef',
     routeName: 'beef',
@@ -18,7 +18,7 @@ export const SHOP_DATA = [
       },
     ]
   },
-  {
+  chicken: {
     id: 2,
     title: 'Chicken',
     routeName: 'chicken',
@@ -43,7 +43,7 @@ export const SHOP_DATA = [
       },
     ]
   },
-  {
+  pork: {
     id: 3,
     title: 'Pork',
     routeName: 'pork',
@@ -68,7 +68,7 @@ export const SHOP_DATA = [
       },
     ]
   },
-  {
+  fish: {
     id: 4,
     title: 'Fish',
     routeName: 'fish',
@@ -81,7 +81,7 @@ export const SHOP_DATA = [
       },
     ]
   },
-  {
+  seafood: {
     id: 5,
     title: 'Seafood',
     routeName: 'seafood',
@@ -94,6 +94,6 @@ export const SHOP_DATA = [
       },
     ]
   }
-];
+}
 
 export default SHOP_DATA;

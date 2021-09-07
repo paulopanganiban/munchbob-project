@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux'
 import CollectionPreview from './CollectionPreview'
 
 const CollectionsOverview = () => {
-    const state = useSelector(state => state.shop.collections)
+    const collections = useSelector(state => state.shop.collections)
+    const collectionsArray = Object.keys(collections).map(key => collections[key])
     return (
         <div>
               {
-                state.map(({id, ...otherCollectionProps}) => (
+                collectionsArray.map(({id, ...otherCollectionProps}) => (
                     <CollectionPreview key={id} {...otherCollectionProps}/>
                 ))
             }  

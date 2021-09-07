@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Card, Button } from 'antd';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cartReducer';
+import CollectionItem from './CollectionItem';
 
 const { Meta } = Card;
 const CollectionPreview = ({ title, items }) => {
@@ -14,23 +15,7 @@ const CollectionPreview = ({ title, items }) => {
                 {
                     items.filter((item, idx) => idx < 4).map((item) => (
                         <>
-                            <CardContainer>
-                                <Card
-                                    key={item.id}
-                                    hoverable
-                                    style={{ width: '85%' }}
-                                    cover={<img alt={item.title} src={item.imageUrl} />}
-                                >
-                                    <CardMetaContainer>
-                                        <Meta title={item.name}/>
-                                        <Button
-                                        onClick={() => {dispatch(addItem(item))}}
-                                        >Add to Cart</Button>
-                                    </CardMetaContainer>
-                                    <p>PHP {item.price}</p>
-                                </Card>
-                            </CardContainer>
-
+                            <CollectionItem key={item.id} item={item}></CollectionItem>
                         </>
                     ))
                 }
@@ -40,18 +25,7 @@ const CollectionPreview = ({ title, items }) => {
 }
 
 export default CollectionPreview
-const CardMetaContainer = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-`
-const CardContainer = styled.div`
-padding: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-`
+
 const CollectionPreviewWrapper = styled.div`
 
 `
