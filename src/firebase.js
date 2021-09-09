@@ -87,5 +87,18 @@ export const addUserToDatabase = (user, additionalData) => {
       userRole: userRole,
     })
   }
+}
 
+// add collection
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = db.collection(collectionKey)
+  console.log(collectionRef)
+  // batch write
+  const batch = db.batch()
+  // foreach doesn't return a new array
+  objectsToAdd.forEach(object => {
+    const newDocRef = collectionRef.doc()
+    batch.set(newDocRef, object)
+  })
+ return await batch.commit()
 }

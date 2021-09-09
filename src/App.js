@@ -1,16 +1,18 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, useHistory } from "react-router-dom";
 import Header from "./components/Header";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import { auth, createUserProfileDocument } from "./firebase";
+import { addCollectionAndDocuments, auth, createUserProfileDocument } from "./firebase";
 import CheckoutPage from "./pages/CheckoutPage";
 import HomePage from "./pages/HomePage";
 import ShopPage from "./pages/ShopPage";
+import { selectCollectionsForPreview } from "./redux/shopSelector";
 import { setCurrentUser, signOutOfApp } from "./redux/userReducer";
 
 function App() {
+  const collectionsArray = useSelector(selectCollectionsForPreview)
   const history = useHistory()
   const dispatch = useDispatch()
   useEffect(() => {
@@ -29,6 +31,7 @@ function App() {
         dispatch(signOutOfApp())
       }
     })
+    addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})))
     return unsubscribe
   }, [])
   return (
