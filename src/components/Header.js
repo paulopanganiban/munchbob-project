@@ -18,7 +18,7 @@ const Header = ({ history }) => {
                 />
                 {
                     // TODO: Finish this later.
-                    hamburgerHidden ? (<HamburgerMenu isOpen={hamburgerHidden} />) : (null)
+                    hamburgerHidden ? (null) : (<HamburgerMenu isOpen={hamburgerHidden} />)
                 }
             </HeaderLeft>
             <HeaderMiddle>

@@ -9,7 +9,7 @@ import MenuItem from '../components/MenuItem'
 
 const HomePage = () => {
     const collections = useSelector(state => state.shop.collections)
-    const collectionsArray = Object.keys(collections).map(key => collections[key])
+    const collectionsArray = collections ? Object.keys(collections).map(key => collections[key]): []
     return (
         <HomePageContainer>
             <Hero />
