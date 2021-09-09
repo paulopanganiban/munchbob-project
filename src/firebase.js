@@ -1,3 +1,4 @@
+import { transform } from '@babel/core';
 import firebase from 'firebase'
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -33,7 +34,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const userRef = db.doc(`users/${uid}`)
   const snapshot = await userRef.get()
 
-  if(!snapshot.exists) {
+  if (!snapshot.exists) {
     const { displayName, email, photoURL } = userAuth;
     const timestamp = firebase.firestore.FieldValue.serverTimestamp()
     try {
@@ -100,5 +101,24 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
     const newDocRef = collectionRef.doc()
     batch.set(newDocRef, object)
   })
- return await batch.commit()
+  return await batch.commit()
 }
+
+export const convertCollectionsSnapshotToMap =
+  (collections) => {
+    const transformedCollection = 
+    collections.docs.map(doc => {
+      const { title, items } = doc.data()
+      return {
+        routeName: encodeURI(title.toLowerCase()),
+        id: doc.id,
+        title,
+        items
+      }
+    })
+    transformedCollection
+    .reduce((accumulator,collection) => {
+      accumulator[collection.title.toLowerCase()] = collection;
+      return accumulator;
+    }, {})
+  }
